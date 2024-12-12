@@ -1,0 +1,9 @@
+obstacle_range: .15
+raytrace_range: 3.0
+footprint: [[-0.14, -0.14], [-0.14, 0.14], [0.14, 0.14], [0.14, -0.14]]
+#robot_radius: ir_of_robot
+inflation_radius: 0.2
+
+observation_sources: point_cloud_sensor
+##laser_scan_sensor: {sensor_frame: /t265_link, data_type: LaserScan, topic: /laserscan, marking: true, clearing: true}
+point_cloud_sensor: {sensor_frame: d400_link, data_type: PointCloud2, topic: /d400/depth/color/points, marking: true, clearing: true}

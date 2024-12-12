@@ -1,0 +1,41 @@
+<launch>
+    <!-- RealSense Camera Launch -->
+    <arg name="device_type_camera1" default="t265"/>
+    <arg name="device_type_camera2" default="d4.5"/> <!-- Note: using regular expression. match D435, D435i, D415... -->
+    <arg name="serial_no_camera1" default=""/>
+    <arg name="serial_no_camera2" default=""/>
+    <arg name="camera1" default="t265"/> <!-- Note: t265 camera -->
+    <arg name="camera2" default="d400"/> <!-- Note: d435i camera -->
+    <arg name="clip_distance" default="-2"/>
+    <arg name="use_rviz" default="true"/>
+    <arg name="use_rtabmapviz" default="true"/>
+
+    <include file="$(find realsense2_camera)/launch/rs_d400_and_t265.launch">
+        <arg name="device_type_camera1" value="$(arg device_type_camera1)"/>
+        <arg name="device_type_camera2" value="$(arg device_type_camera2)"/>
+        <arg name="serial_no_camera1" value="$(arg serial_no_camera1)"/>
+        <arg name="serial_no_camera2" value="$(arg serial_no_camera2)"/>
+        <arg name="camera1" value="$(arg camera1)"/>
+        <arg name="camera2" value="$(arg camera2)"/>
+        <arg name="clip_distance" value="$(arg clip_distance)"/>
+    </include>
+
+
+    <!-- UKF Localization -->
+    <include file="$(find robot_localization)/launch/ukf_template.launch"/>
+    <param name="/ukf_se/frequency" value="300"/>
+    <param name="/ukf_se/base_link_frame" value="t265_link"/>
+    <param name="/ukf_se/odom0" value="rtabmap/odom"/>
+    <rosparam param="/ukf_se/odom0_config">
+        [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
+    </rosparam>
+    <param name="/ukf_se/odom0_relative" value="true"/>
+    <param name="/ukf_se/odom0_pose_rejection_threshold" value="10000000"/>
+    <param name="/ukf_se/odom0_twist_rejection_threshold" value="10000000"/>
+    <param name="/ukf_se/imu0" value="/imu/data"/>
+    <rosparam param="/ukf_se/imu0_config">[false,false,false,true,true,true,true,true,true,true,true,true,true,true,true]</rosparam>
+    <param name="/ukf_se/imu0_differential" value="true"/>
+    <param name="/ukf_se/imu0_relative" value="false"/>
+    <param name="/ukf_se/use_control" value="false"/>
+</launch>
+

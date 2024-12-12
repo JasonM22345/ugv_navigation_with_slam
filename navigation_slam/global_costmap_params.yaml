@@ -1,0 +1,8 @@
+global_costmap:
+    global_frame: map
+    robot_base_frame: t265_link
+    update_frequency: 5.0
+    static_map: true
+    track_unknown_space: true
+    rolling_window: false
+    map_topic: rtabmap/proj_map
