@@ -1,4 +1,4 @@
-# Autonomous Waypoint Navigation and Localization Using SLAM
+# Autonomous Waypoint Navigation and Localization Using SLAM (ros1)
 
 This repository provides all the necessary resources for building and operating a UGV (Unmanned Ground Vehicle) capable of autonomous waypoint navigation and localization using SLAM (Simultaneous Localization and Mapping). The system integrates ROS-based components, including RTAB-Map for SLAM, `move_base` for path planning, and real-time motor control via Arduino for differential drive robots.
 
@@ -12,6 +12,7 @@ This repository provides all the necessary resources for building and operating 
 - **Map Server Integration:** Reuse prebuilt maps for efficient localization and navigation.
 
 
+## NB: THIS WAS CREATED FOR ROS1, NOT ROS2
 
 ## Setup Instructions
 
