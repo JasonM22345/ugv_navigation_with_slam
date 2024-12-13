@@ -45,7 +45,6 @@ This repository provides all the necessary resources for building and operating 
    wget https://raw.githubusercontent.com/JasonM22345/ugv_navigation_with_slam/main/final_rviz.rviz
    ```
 
-For detailed setup steps, refer to the [Setup Instructions](#setup-instructions).
 
 
 
